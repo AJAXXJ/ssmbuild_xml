@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>list</title>
+		<!--bootstrap美化界面-->
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row clearfix">
+				<div class="col-md-12 column">
+					<div class="page-header">
+						<h1>
+							<small>书籍列表————显示所有书籍</small>
+						</h1>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 column">
+						<a class="btn btn-primary" th:href="@{/toAddPage}">添加书籍</a>
+						<a class="btn btn-primary" th:href="@{/queryAllBook}">显示所有书籍</a>
+					</div>
+					<div class="col-md-4 column"></div>
+					<div class="col-md-4 column">
+						<form th:action="@{/queryBookByName}" method="post" style="float: right">
+							<span style="color: red;font-weight: bold" th:text="${error}"></span>
+							<input type="text" name="bookName" class="form-control" placeholder="请输入要查询的书籍名称"/>
+							<input type="submit" value="查询" class="btn btn-primary"/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<table class="table table-hover table-striped">
+					<thead>
+					<tr>
+						<th>ID</th>
+						<th>书名</th>
+						<th>数量</th>
+						<th>描述</th>
+						<th>操作</th>
+					</tr>
+					</thead>
+					<!--/*@thymesVar id="books" type="com.bean.Books"*/-->
+					<tbody>
+					<tr th:each="book:${books}">
+						<td th:text="${book.bookID}"></td>
+						<td th:text="${book.bookName}"></td>
+						<td th:text="${book.bookCounts}"></td>
+						<td th:text="${book.detail}"></td>
+						<td>
+							<a th:href="@{'/updateBookPage/'+${book.bookID}}">修改</a>
+							&nbsp; | &nbsp;
+							<a th:href="@{'/deleteBook/'+${book.bookID}}">删除</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

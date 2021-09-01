@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--配置数据源交给spring-->
+    <!--别名-->
+<!--    <typeAliases>-->
+<!--        <package name="com"/>-->
+<!--    </typeAliases>-->
+<!--    <settings>-->
+<!--        <setting name="" value=""/>-->
+<!--    </settings>-->
+    <!--注册sql映射文件-->
+    <mappers>
+        <mapper resource="config/mapper/BookMapper.xml"/>
+    </mappers>
+</configuration>

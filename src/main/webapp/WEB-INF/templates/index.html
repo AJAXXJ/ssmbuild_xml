@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<style>
+			a{
+				text-decoration: none;
+                color: black;
+				font-size: 18px;
+			}
+			h3{
+				width: 180px;
+                height: 38px;
+				margin: 100px auto;
+				text-align: center;
+				line-height: 38px;
+                background: aqua;
+				border-radius: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3><a th:href="@{/queryAllBook}">查询所有书籍</a></h3>
+	</body>
+</html>
